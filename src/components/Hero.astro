@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import doro from "../assets/doro.jpeg";
+---
+<section id="hero" class="flex w-full">
+  <div class="m-auto flex max-w-screen-xl flex-col justify-start gap-6 pt-12 md:pt-20">
+    <Image src={doro} alt="Shocked doro" width={100} class="rounded-full"/>
+    <div class="flex flex-1 flex-col gap-2">
+      <h1 class="text-xl">I make and break things!</h1>
+      <p class="text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <a href="/about" class="underline text-zinc-500">Tell me more!</a>
+    </div>
+  </div>
+</section>
