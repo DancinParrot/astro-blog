@@ -1,0 +1,28 @@
+---
+interface Props {
+  orientation?: string;
+  // title: string;
+  // description: string;
+  // image: string;
+}
+
+const { orientation = "vertical" } = Astro.props;
+---
+
+<div class="flex flex-col items-start gap-6 overflow-hidden rounded-xl border border-slate-200">
+  <div class="flex w-full items-center justify-center bg-[url('https://tailframes.com/images/squares-bg.webp')] bg-cover bg-center bg-no-repeat py-20 2xl:py-28">
+    <!-- Image  -->
+  </div>
+  <div class="flex flex-col items-start gap-4 px-4 py-6 md:gap-6 md:px-8">
+    <p class="text-2xl font-semibold tracking-tight">Headline</p>
+    <p class="text-base text-slate-500">We've done it carefully and simply. Combined with the ingredients makes for beautiful landings.</p>
+    <button type="button" aria-disabled="false"
+      class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none transition-all duration-300 ease-in-out disabled:cursor-not-allowed stroke-blue-700 text-blue-700 h-[42px] min-w-[42px] gap-2 disabled:stroke-slate-400 disabled:text-slate-400 hover:stroke-blue-950 hover:text-blue-950 self-end p-0">
+      <div>Read More</div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" class="size-6 stroke-inherit">
+        <path d="M11 16L15 12L11 8" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="12" cy="12" r="9"></circle>
+      </svg>
+    </button>
+  </div>
+</div>
