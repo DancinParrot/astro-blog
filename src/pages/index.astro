@@ -3,6 +3,7 @@ import "../styles/global.css";
 // import Welcome from '../components/Welcome.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
+import PostPreviewList from '../components/PostPreviewList.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -10,9 +11,11 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<h1 class="text-3xl font-bold underline max-w-app">Test</h1>	
-	<Hero />
-	<div role="separator" class="bg-slate-200 my-4 w-full h-px"></div>
-	<Projects />
-	<!-- Recent Posts -->
+	<div class="flex flex-col gap-14 sm:gap-20">
+		<Hero />
+		<!-- <div role="separator" class="bg-slate-200 my-4 w-full h-px"></div> -->
+		<Projects />
+		<!-- Recent Posts -->
+		<PostPreviewList />
+	</div>
 </Layout>
