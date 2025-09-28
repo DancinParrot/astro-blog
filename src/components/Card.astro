@@ -1,5 +1,7 @@
 ---
 import { ArrowUpRight } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import cloudlabs from "../assets/cloudlabs-logo.png";
 
 interface Props {
   orientation?: string;
@@ -12,9 +14,9 @@ const { orientation = "vertical" } = Astro.props;
 ---
 {
   orientation == "vertical" ?
-    <div class="flex flex-col items-start gap-6 overflow-hidden rounded-xl border border-slate-200">
-      <div class="flex w-full items-center justify-center bg-[url('https://tailframes.com/images/squares-bg.webp')] bg-cover bg-center bg-no-repeat py-20 2xl:py-28">
-        <!-- Image  -->
+    <div class="flex flex-col items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
+      <div class="flex w-full items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat py-10">
+        <Image src={cloudlabs} alt="cloudlabs" width={150} class="rounded-xl"/>
       </div>
       <div class="flex flex-col items-start gap-2 px-4 py-6 md:px-8">
         <p class="text-base text-slate-500">2019</p>
@@ -28,9 +30,10 @@ const { orientation = "vertical" } = Astro.props;
       </div>
     </div>
     :
-    <div class="flex flex-col sm:flex-row items-start gap-6 overflow-hidden rounded-xl border border-slate-200">
-      <div class="flex w-full sm:order-1 items-center justify-center bg-[url('https://tailframes.com/images/squares-bg.webp')] bg-cover bg-center bg-no-repeat py-20 2xl:py-28">
+    <div class="flex flex-col sm:flex-row items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
+      <div class="flex w-full sm:order-1 items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat py-10">
         <!-- Image  -->
+        <Image src={cloudlabs} alt="cloudlabs" width={150} class="rounded-xl"/>
       </div>
       <div class="flex flex-col items-start gap-2 px-4 py-6 md:px-8">
         <p class="text-base text-slate-500">2019</p>
