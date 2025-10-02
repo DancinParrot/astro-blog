@@ -1,0 +1,49 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import cloudlabs from "../assets/cloudlabs-logo.png";
+
+interface Props {
+  orientation?: string;
+  // title: string;
+  // description: string;
+  // image: string;
+}
+
+const { orientation = "vertical" } = Astro.props;
+---
+{
+  orientation == "vertical" ?
+    <div class="flex flex-col items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
+      <div class="flex w-full items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat py-10">
+        <Image src={cloudlabs} alt="cloudlabs" width={150} class="rounded-xl"/>
+      </div>
+      <div class="flex flex-col items-start gap-2 px-4 py-6 md:px-8">
+        <p class="text-base text-slate-500">2019</p>
+        <p class="text-2xl font-semibold tracking-tight">Headline</p>
+        <p class="text-base text-slate-500">We've done it carefully and simply. Combined with the ingredients makes for beautiful landings.</p>
+        <button type="button" aria-disabled="false"
+          class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0">
+          <div>Read More</div>
+          <ArrowUpRight size={20} />
+        </button>
+      </div>
+    </div>
+    :
+    <div class="flex flex-col sm:flex-row items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
+      <div class="flex w-full sm:order-1 items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat py-10">
+        <!-- Image  -->
+        <Image src={cloudlabs} alt="cloudlabs" width={150} class="rounded-xl"/>
+      </div>
+      <div class="flex flex-col items-start gap-2 px-4 py-6 md:px-8">
+        <p class="text-base text-slate-500">2019</p>
+        <p class="text-2xl font-semibold tracking-tight">Headline</p>
+        <p class="text-base text-slate-500">We've done it carefully and simply. Combined with the ingredients makes for beautiful landings.</p>
+        <button type="button" aria-disabled="false"
+          class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none h-[42px] min-w-[42px] gap-1 cursor-pointer p-0">
+          <div>Read More</div>
+          <ArrowUpRight size={20} />
+        </button>
+      </div>
+    </div>
+}
