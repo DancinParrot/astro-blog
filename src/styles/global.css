@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 @utility max-w-app {
   @apply max-w-2xl;
