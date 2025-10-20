@@ -4,9 +4,10 @@ interface Props {
   title: string;
   description: string;
   url: string;
+  tags: string[];
 }
 
-const { pubDate, title, description, url } = Astro.props;
+const { pubDate, title, description, url, tags } = Astro.props;
 const date = new Date(pubDate).toLocaleDateString(
   'en-gb',
   {
@@ -18,10 +19,13 @@ const date = new Date(pubDate).toLocaleDateString(
 
 ---
 
-<li>
+<li class="flex flex-col gap-2">
   <a href={url}>
     <time class="mb-1 text-sm font-normal leading-none text-gray-400">{date}</time>
     <h3 class="text-lg font-semibold text-gray-900">{title}</h3>
     <p class="text-base font-normal text-gray-500">{description}</p>
   </a>
+  <div class="flex flex-row flex-wrap gap-2">
+    {tags.map((tag) => <a href={`/tags/${tag}`}><span class="inline-flex rounded-[64px] border text-center font-semibold transition-all duration-300 ease-in-out h-5 px-2 py-0.5 pb-5 text-xs border-slate-300 bg-white text-black">{tag}</span></a>)}
+  </div>
 </li>

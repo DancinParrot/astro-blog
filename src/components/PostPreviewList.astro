@@ -3,11 +3,10 @@ import PostPreview from '../components/PostPreview.astro';
 
 interface Props {
   title?: string;
+  posts: any;
 }
 
-const { title } = Astro.props;
-
-const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
+const { title, posts } = Astro.props;
 ---
 
 <div class="flex flex-col gap-8">
@@ -15,9 +14,8 @@ const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: 
     title && <h1 class="text-xl bold">{title}</h1>
   }
   <ul class="flex flex-col gap-10">
-    {allPosts.map((post: any) =>
-      <PostPreview pubDate={post.frontmatter.pubDate} title={post.frontmatter.title} description={post.frontmatter.description} url={post.url} />
+    {posts.map((post: any) =>
+      <PostPreview pubDate={post.frontmatter.pubDate} title={post.frontmatter.title} description={post.frontmatter.description} url={post.url} tags={post.frontmatter.tags} />
     )}
   </ul>
-  <a href="/">View more posts-></a>
 </div>

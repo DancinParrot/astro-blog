@@ -1,6 +1,8 @@
 ---
 import PostPreviewList from "../components/PostPreviewList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
 ---
 
 <BaseLayout>
@@ -9,6 +11,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <h1 class="text-3xl font-bold">Blog</h1>
       <p class="text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
-	  <PostPreviewList />
+    <PostPreviewList posts={allPosts} />
   </div>
 </BaseLayout>

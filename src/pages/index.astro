@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css";
+import { ArrowUpRight } from '@lucide/astro';
 // import Welcome from '../components/Welcome.astro';
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import PostPreviewList from "../components/PostPreviewList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
 const pageTitle = "Home";
 ---
 
@@ -15,6 +17,15 @@ const pageTitle = "Home";
 		<!-- <div role="separator" class="bg-slate-200 my-4 w-full h-px"></div> -->
 		<Projects />
 		<!-- Recent Posts -->
-		<PostPreviewList title="Recent Posts" />
+		<div class="flex flex-col gap-4">
+			<PostPreviewList title="Recent Posts" posts={allPosts} />
+			<div>
+    		<a href="/blog" aria-disabled="false"
+      		class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0">
+      		<div>Visit My Blog</div>
+      		<ArrowUpRight size={20} />
+    		</a>
+			</div>
+		</div>
 	</div>
 </BaseLayout>
