@@ -15,7 +15,7 @@ const { title, posts } = Astro.props;
   }
   <ul class="flex flex-col gap-10">
     {posts.map((post: any) =>
-      <PostPreview pubDate={post.frontmatter.pubDate} title={post.frontmatter.title} description={post.frontmatter.description} url={post.url} tags={post.frontmatter.tags} />
+    <PostPreview pubDate={post.data.pubDate} title={post.data.title} description={post.data.description} url={`/posts/${post.id}`} tags={post.data.tags} />
     )}
   </ul>
 </div>

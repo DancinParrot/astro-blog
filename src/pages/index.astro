@@ -1,20 +1,19 @@
 ---
 import "../styles/global.css";
+import { getCollection } from "astro:content";
 import { ArrowUpRight } from '@lucide/astro';
-// import Welcome from '../components/Welcome.astro';
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import PostPreviewList from "../components/PostPreviewList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
+const allPosts = await getCollection("blog");
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="flex flex-col gap-14 sm:gap-20">
 		<Hero />
-		<!-- <div role="separator" class="bg-slate-200 my-4 w-full h-px"></div> -->
 		<Projects />
 		<!-- Recent Posts -->
 		<div class="flex flex-col gap-4">
