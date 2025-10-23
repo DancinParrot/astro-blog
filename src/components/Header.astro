@@ -1,5 +1,7 @@
 ---
 import { Bot, Moon, Menu, X } from '@lucide/astro';
+
+const { pathname } = Astro.url;
 ---
 
 <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
@@ -29,9 +31,9 @@ import { Bot, Moon, Menu, X } from '@lucide/astro';
 
       <div class="mobile-header aria-[expanded=false]:hidden overflow-hidden transition-all duration-300 basis-full grow md:aria-[expanded=false]:block" aria-expanded="false">
         <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/" aria-current="page">Home</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden" href="/blog">Blog</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden" href="/about">About</a>
+          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 font-medium text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/" aria-current={pathname.slice(1) == "" ? 'page' : 'false'}>Home</a>
+          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/posts/" aria-current={pathname.slice(1, 6) == "posts" ? 'page' : 'false'}>Blog</a>
+          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/about" aria-current={pathname.slice(1) == "about" ? 'page' : 'false'}>About</a>
         </div>
       </div>
     </nav>

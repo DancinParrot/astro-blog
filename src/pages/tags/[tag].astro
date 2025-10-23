@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostPreviewList from '../../components/PostPreviewList.astro';
+import getSortedPosts from "../../utils/getSortedPosts.ts";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const recentPosts = getSortedPosts(allPosts);
+  const uniqueTags = [...new Set(recentPosts.map((post: any) => post.data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = recentPosts.filter((post: any) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  })
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+<BaseLayout pageTitle={tag}>
+  <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <h1 class="text-3xl font-bold"># {tag}</h1>
+      <p class="text-zinc-500">Posts tagged with #{tag}</p>
+    </div>
+    <PostPreviewList posts={posts} />
+  </div>
+</BaseLayout>

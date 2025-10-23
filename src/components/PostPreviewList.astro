@@ -1,13 +1,21 @@
 ---
 import PostPreview from '../components/PostPreview.astro';
+
+interface Props {
+  title?: string;
+  posts: any;
+}
+
+const { title, posts } = Astro.props;
 ---
 
 <div class="flex flex-col gap-8">
-  <h1 class="text-xl bold">Recent Posts</h1>
-  <ol class="flex flex-col gap-10">
-      <PostPreview />
-      <PostPreview />
-      <PostPreview />
-  </ol>
-  <a href="/">View more posts-></a>
+  {
+    title && <h1 class="text-xl bold">{title}</h1>
+  }
+  <ul class="flex flex-col gap-10">
+    {posts.map((post: any) =>
+    <PostPreview pubDate={post.data.pubDate} title={post.data.title} description={post.data.description} url={`/posts/${post.id}`} tags={post.data.tags} />
+    )}
+  </ul>
 </div>

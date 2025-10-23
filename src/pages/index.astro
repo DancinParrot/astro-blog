@@ -1,21 +1,32 @@
 ---
 import "../styles/global.css";
-// import Welcome from '../components/Welcome.astro';
-import Hero from '../components/Hero.astro';
-import Projects from '../components/Projects.astro';
-import PostPreviewList from '../components/PostPreviewList.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import { ArrowUpRight } from '@lucide/astro';
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import PostPreviewList from "../components/PostPreviewList.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import getSortedPosts from "../utils/getSortedPosts.ts";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allPosts = await getCollection("blog");
+const recentPosts = getSortedPosts(allPosts);
+const pageTitle = "Home";
 ---
 
-<Layout>
+<BaseLayout pageTitle={pageTitle}>
 	<div class="flex flex-col gap-14 sm:gap-20">
 		<Hero />
-		<!-- <div role="separator" class="bg-slate-200 my-4 w-full h-px"></div> -->
 		<Projects />
 		<!-- Recent Posts -->
-		<PostPreviewList />
+		<div class="flex flex-col gap-8">
+			<PostPreviewList title="Recent Posts" posts={recentPosts.slice(0, 4)} />
+			<div>
+    		<a href="/posts" aria-disabled="false"
+      		class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0">
+      		<div>Visit My Blog</div>
+      		<ArrowUpRight size={20} />
+    		</a>
+			</div>
+		</div>
 	</div>
-</Layout>
+</BaseLayout>
