@@ -2,13 +2,15 @@
 import { getCollection } from "astro:content";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostPreviewList from '../../components/PostPreviewList.astro';
+import getSortedPosts from "../../utils/getSortedPosts.ts";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  const uniqueTags = [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+  const recentPosts = getSortedPosts(allPosts);
+  const uniqueTags = [...new Set(recentPosts.map((post: any) => post.data.tags).flat())];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post: any) => post.data.tags.includes(tag));
+    const filteredPosts = recentPosts.filter((post: any) => post.data.tags.includes(tag));
     return {
       params: { tag },
       props: { posts: filteredPosts },

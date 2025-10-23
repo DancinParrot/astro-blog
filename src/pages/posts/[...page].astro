@@ -4,17 +4,20 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostPreviewList from "../../components/PostPreviewList.astro";
 import Pagination from "../../components/Pagination.astro";
+import getSortedPosts from "../../utils/getSortedPosts.ts";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection("blog");
+  const recentPosts = getSortedPosts(allPosts);
 
-  return paginate(allPosts, {pageSize: 6});
+  return paginate(recentPosts, {pageSize: 6});
 }) satisfies GetStaticPaths;
 
+const pageTitle = "Blog";
 const { page } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col min-h-full gap-8">
     <div class="flex flex-col gap-4">
       <h1 class="text-3xl font-bold">Blog</h1>
