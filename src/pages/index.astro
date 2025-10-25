@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { getCollection } from "astro:content";
-import { ArrowUpRight } from '@lucide/astro';
+import { ArrowUpRight } from "@lucide/astro";
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import PostPreviewList from "../components/PostPreviewList.astro";
@@ -14,18 +14,26 @@ const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="flex flex-col gap-14 sm:gap-20">
+	<div class="flex flex-col gap-14">
 		<Hero />
-		<Projects />
+
+		<div class="flex flex-col gap-4">
+			<h2 class="text-xl bold">Projects</h2>
+			<Projects />
+		</div>
 		<!-- Recent Posts -->
-		<div class="flex flex-col gap-8">
-			<PostPreviewList title="Recent Posts" posts={recentPosts.slice(0, 4)} />
+		<div class="flex flex-col gap-4">
+			<h2 class="text-xl bold">Recent Posts</h2>
+			<PostPreviewList posts={recentPosts.slice(0, 4)} />
 			<div>
-    		<a href="/posts" aria-disabled="false"
-      		class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0">
-      		<div>Visit My Blog</div>
-      		<ArrowUpRight size={20} />
-    		</a>
+				<a
+					href="/posts"
+					aria-disabled="false"
+					class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0"
+				>
+					<div>Visit My Blog</div>
+					<ArrowUpRight size={20} />
+				</a>
 			</div>
 		</div>
 	</div>
