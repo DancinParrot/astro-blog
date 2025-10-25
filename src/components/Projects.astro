@@ -1,18 +1,40 @@
 ---
-import Card from '../components/Card.astro'
+import Card from "../components/Card.astro";
+import cloudlabs from "../assets/cloudlabs.png";
+import cashshope from "../assets/cashshope.png";
+import mallie from "../assets/mallie.png";
 ---
 
 <div class="flex flex-col gap-8">
   <h1 class="text-xl bold">Projects</h1>
   <div class="grid grid-cols-2 grid-rows-2 gap-4">
     <div class="col-span-2 row-span-2">
-      <Card orientation="horizontal" />
+      <Card
+        orientation="horizontal"
+        title="Cloudlabs"
+        description="A project sponsored by GCP to create a secure cloud environment for practical lessons."
+        caption="2024"
+        image={cloudlabs}
+        url="https://github.com/projectcatena/cloudlabs-app"
+      />
     </div>
     <div class="col-span-2 row-span-2 sm:row-start-3 sm:col-span-1">
-      <Card />
+      <Card
+        title="Mallie"
+        description="A Proof-Of-Concept sample linux rootkit that escalates privilleges for a malicious executable."
+        caption="2023"
+        image={mallie}
+        url="https://github.com/DancinParrot/mallie"
+      />
     </div>
     <div class="col-span-2 row-span-2 sm:row-start-3 sm:col-span-1">
-      <Card />
+      <Card
+        title="Cashshope"
+        description="Cashshope is a modern and user-friendly shopping platform for all you needs! "
+        caption="2022"
+        image={cashshope}
+        url="https://github.com/DancinParrot/Cashshope"
+      />
     </div>
   </div>
   <a href="/">View more projects-></a>

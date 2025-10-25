@@ -1,49 +1,50 @@
 ---
 import { ArrowUpRight } from '@lucide/astro';
 import { Image } from 'astro:assets';
-import cloudlabs from "../assets/cloudlabs-logo.png";
 
 interface Props {
   orientation?: string;
-  // title: string;
-  // description: string;
-  // image: string;
+  title: string;
+  description: string;
+  caption: string;
+  image: ImageMetadata;
+  url: string;
 }
 
-const { orientation = "vertical" } = Astro.props;
+const { orientation = "vertical", title, description, caption, image, url } = Astro.props;
 ---
 {
   orientation == "vertical" ?
-    <div class="flex flex-col items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
-      <div class="flex w-full items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat py-10">
-        <Image src={cloudlabs} alt="cloudlabs" width={150} class="rounded-xl"/>
+    <div class="flex flex-col sm:grid sm:grid-cols-1 sm:grid-rows-2 sm:h-full items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
+      <div class="flex w-full items-center justify-center">
+        <Image src={image} alt="cloudlabs" class="w-full h-auto"/>
       </div>
-      <div class="flex flex-col items-start gap-2 px-4 py-6 md:px-8">
-        <p class="text-base text-slate-500">2019</p>
-        <p class="text-2xl font-semibold tracking-tight">Headline</p>
-        <p class="text-base text-slate-500">We've done it carefully and simply. Combined with the ingredients makes for beautiful landings.</p>
-        <button type="button" aria-disabled="false"
-          class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0">
+      <div class="flex flex-col items-start px-4 py-6 sm:py-4 md:px-8">
+        <p class="text-base text-slate-500">{caption}</p>
+        <p class="text-2xl font-semibold tracking-tight mb-2">{title}</p>
+        <p class="text-base text-slate-500">{description}</p>
+        <a href={url} target="_blank" type="button" aria-disabled="false"
+          class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none cursor-pointer h-[42px] min-w-[42px] gap-1 p-0 mt-2">
           <div>Read More</div>
           <ArrowUpRight size={20} />
-        </button>
+        </a>
       </div>
     </div>
     :
-    <div class="flex flex-col sm:flex-row items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
-      <div class="flex w-full sm:order-1 items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat py-10">
+    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-1 items-start sm:items-stretch overflow-hidden rounded-xl border border-slate-200">
+      <div class="flex w-full sm:order-1 items-center justify-center bg-zinc-50 bg-cover bg-center bg-no-repeat">
         <!-- Image  -->
-        <Image src={cloudlabs} alt="cloudlabs" width={150} class="rounded-xl"/>
+        <Image src={image} alt="cloudlabs" class="size-full object-cover"/>
       </div>
-      <div class="flex flex-col items-start gap-2 px-4 py-6 md:px-8">
-        <p class="text-base text-slate-500">2019</p>
-        <p class="text-2xl font-semibold tracking-tight">Headline</p>
-        <p class="text-base text-slate-500">We've done it carefully and simply. Combined with the ingredients makes for beautiful landings.</p>
-        <button type="button" aria-disabled="false"
+      <div class="flex flex-col items-start px-4 py-6 sm:pb-4 sm:pt-6 md:px-8">
+        <p class="text-base text-slate-500">{caption}</p>
+        <p class="text-2xl font-semibold tracking-tight mb-2">{title}</p>
+        <p class="text-base text-slate-500">{description}</p>
+        <a href={url} target="_blank" type="button" aria-disabled="false"
           class="group inline-flex items-center justify-center whitespace-nowrap rounded-lg align-middle text-sm font-semibold leading-none h-[42px] min-w-[42px] gap-1 cursor-pointer p-0">
           <div>Read More</div>
           <ArrowUpRight size={20} />
-        </button>
+        </a>
       </div>
     </div>
 }
