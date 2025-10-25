@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Timeline from "../components/Timeline.astro";
+import Profile from "../components/Profile.astro";
+import Projects from "../components/Projects.astro";
+import AwardsList from "../components/AwardsList.astro";
+import nus from "../assets/nus.png";
+import np from "../assets/np.png";
+---
+
+<BaseLayout>
+  <div class="flex flex-col gap-10">
+    <!-- Profile -->
+    <Profile />
+    <!-- End Profile -->
+
+    <!-- Projects -->
+    <Projects />
+    <!-- End Projects -->
+
+    <!-- Work Experience -->
+    <div>
+      <h2 class="mb-4">Work Experience</h2>
+      <div>
+        <Timeline
+          dateRange="2023 - Present"
+          title="Web Developer"
+          description="The company has high expectations and using OKRs there is a mutual understanding of expectations and performance. "
+          content="Designed template UIs and design systems in Figma.\nConverted UIs into responsive HTML and CSS with a mobile-first approach.\nCreated custom illustrations and item description banners.\nProvided detailed documentation and customer support on GitHub.\nEngaged with users to address setup inquiries, bug issues, and feedback."
+        />
+        <Timeline
+          dateRange="2023 - Present"
+          title="Web Developer"
+          description="The company has high expectations and using OKRs there is a mutual understanding of expectations and performance. "
+          content="Designed template UIs and design systems in Figma.\nConverted UIs into responsive HTML and CSS with a mobile-first approach.\nCreated custom illustrations and item description banners.\nProvided detailed documentation and customer support on GitHub.\nEngaged with users to address setup inquiries, bug issues, and feedback."
+        />
+        <Timeline
+          dateRange="2023 - Present"
+          title="Web Developer"
+          description="The company has high expectations and using OKRs there is a mutual understanding of expectations and performance. "
+          content="Designed template UIs and design systems in Figma.\nConverted UIs into responsive HTML and CSS with a mobile-first approach.\nCreated custom illustrations and item description banners.\nProvided detailed documentation and customer support on GitHub.\nEngaged with users to address setup inquiries, bug issues, and feedback."
+        />
+      </div>
+    </div>
+    <!-- End Work Experience -->
+
+    <!-- Education -->
+    <div>
+      <h2 class="mb-4">Education</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="p-4 border border-gray-200 rounded-lg">
+          <Image
+            src={nus}
+            alt="National University of Singapore"
+            height={50}
+            class="mb-3"
+          />
+
+          <h3 class="mb-1 text-xs text-gray-600">2026 - 2030</h3>
+
+          <p class="font-semibold text-sm text-gray-800">
+            Bachelor's degree in Information Security with Second Major in
+            Mathematics
+          </p>
+
+          <p class="mt-1 text-sm text-gray-600">
+            National University of Singapore
+          </p>
+        </div>
+
+        <div class="p-4 border border-gray-200 rounded-lg">
+          <Image
+            src={np}
+            alt="Ngee Ann Polytechnic"
+            height={40}
+            class="py-1.5 pb-1 mb-3"
+          />
+
+          <h3 class="mb-1 text-xs text-gray-600">2021 - 2024</h3>
+
+          <p class="font-semibold text-sm text-gray-800">
+            Diploma with Merit in Cybersecurity and Digital Forensics
+          </p>
+
+          <p class="mt-1 text-sm text-gray-600">Ngee Ann Polytechnic</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Education -->
+
+    <!-- Skills, Certs and Awards -->
+    <div>
+      <h2 class="mb-4">Skills</h2>
+      <AwardsList />
+    </div>
+  </div>
+</BaseLayout>
