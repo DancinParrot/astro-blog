@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Timeline from "../components/Timeline.astro";
 import Profile from "../components/Profile.astro";
 import Projects from "../components/Projects.astro";
-import AwardsList from "../components/AwardsList.astro";
+import SkillsAwardsList from "../components/SkillsAwardsList.astro";
 import nus from "../assets/nus.png";
 import np from "../assets/np.png";
 ---
@@ -15,8 +15,17 @@ import np from "../assets/np.png";
     <Profile />
     <!-- End Profile -->
 
+    <!-- Skills, Certs and Awards -->
+    <div>
+      <h2 class="mb-4">Skills and Awards</h2>
+      <SkillsAwardsList />
+    </div>
+
     <!-- Projects -->
-    <Projects />
+    <div>
+      <h2 class="mb-4">Projects</h2>
+      <Projects />
+    </div>
     <!-- End Projects -->
 
     <!-- Work Experience -->
@@ -88,11 +97,5 @@ import np from "../assets/np.png";
       </div>
     </div>
     <!-- End Education -->
-
-    <!-- Skills, Certs and Awards -->
-    <div>
-      <h2 class="mb-4">Skills</h2>
-      <AwardsList />
-    </div>
   </div>
 </BaseLayout>

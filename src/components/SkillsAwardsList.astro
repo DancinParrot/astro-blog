@@ -1,0 +1,168 @@
+---
+import { Image } from "astro:assets";
+import java from "../assets/logos/java.svg";
+import python from "../assets/logos/python.svg";
+import sql from "../assets/logos/postgresql.svg";
+import typescript from "../assets/logos/typescript.svg";
+import springboot from "../assets/logos/springboot.svg";
+import reactjs from "../assets/logos/react.svg";
+import tailwindcss from "../assets/logos/tailwindcss.svg";
+import redhat from "../assets/logos/redhat.svg";
+import aws from "../assets/logos/aws.svg";
+---
+
+<!-- List -->
+<div class="space-y-3">
+  <dl class="flex flex-col sm:flex-row gap-1">
+    <dt class="min-w-40">
+      <span class="block text-sm text-gray-500">Languages:</span>
+    </dt>
+    <dd>
+      <ul>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={java}
+            alt="Java"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          Java
+        </li>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={python}
+            alt="Python"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          Python
+        </li>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={sql}
+            alt="SQL"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          SQL
+        </li>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={typescript}
+            alt="Typescript"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          TypeScript
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl class="flex flex-col sm:flex-row gap-1">
+    <dt class="min-w-40">
+      <span class="block text-sm text-gray-500">Frameworks/Libraries:</span>
+    </dt>
+    <dd>
+      <ul>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={springboot}
+            alt="Spring Boot"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          Spring Boot
+        </li>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={reactjs}
+            alt="React JS"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          React.js
+        </li>
+        <li class="me-1 inline-flex items-center text-sm text-gray-800">
+          <Image
+            src={tailwindcss}
+            alt="TailwindCSS"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          TailwindCSS
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl class="flex flex-col sm:flex-row gap-1">
+    <dt class="min-w-40">
+      <span class="text-sm text-gray-500">Certifications:</span>
+    </dt>
+    <dd>
+      <ul>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          <Image
+            src={redhat}
+            alt="Red Hat"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          RHCSA
+        </li>
+        <li class="me-1 inline-flex items-center text-sm text-gray-800">
+          <Image
+            src={aws}
+            alt="AWS"
+            width="24"
+            height="24"
+            class="shrink-0 size-4 me-1"
+          />
+          AWS CCP
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl class="flex flex-col sm:flex-row gap-1">
+    <dt class="min-w-40">
+      <span class="text-sm text-gray-500">Awards:</span>
+    </dt>
+    <dd>
+      <ul>
+        <li
+          class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800"
+        >
+          NUS ASEAN Undergraduate Scholarship
+        </li>
+        <li class="me-1 inline-flex items-center text-sm text-gray-800">
+          Singtel SHINE Scholarship
+        </li>
+      </ul>
+    </dd>
+  </dl>
+</div>
+<!-- End List -->
