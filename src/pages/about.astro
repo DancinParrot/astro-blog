@@ -1,0 +1,131 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Timeline from "../components/Timeline.astro";
+import Profile from "../components/Profile.astro";
+import SkillsAwardsList from "../components/SkillsAwardsList.astro";
+import IconPreview from "../components/IconPreview.astro";
+import nus from "../assets/nus.png";
+import np from "../assets/np.png";
+import android from "../assets/logos/android.svg";
+import astro from "../assets/logos/astro.svg";
+import nextjs from "../assets/logos/nextjs.svg";
+import linux from "../assets/logos/linux.svg";
+---
+
+<BaseLayout>
+  <div class="flex flex-col gap-10">
+    <!-- Profile -->
+    <Profile />
+    <!-- End Profile -->
+
+    <!-- Projects -->
+    <div>
+      <h2 class="mb-4">Projects</h2>
+      <!-- <Projects /> -->
+      <div class="space-y-4">
+        <IconPreview
+          image={nextjs}
+          title="Cloudlabs"
+          description="Virtual environment on the cloud for labs"
+          url="https://github.com/projectcatena/cloudlabs-app"
+        />
+        <IconPreview
+          image={android}
+          title="Cashshope"
+          description="Android app for your shopping needs"
+          url="https://github.com/DancinParrot/Cashshope"
+        />
+        <IconPreview
+          image={linux}
+          title="Mallie"
+          description="Proof-of-Concept Linux rootkit"
+          url="https://github.com/DancinParrot/mallie"
+        />
+        <IconPreview
+          image={astro}
+          title="My Website"
+          description="It runs on Astro, and you're on it now!"
+          url="https://kaizhe.me"
+        />
+      </div>
+    </div>
+    <!-- End Projects -->
+
+    <!-- Skills, Certs and Awards -->
+    <div>
+      <h2 class="mb-4">Skills and Awards</h2>
+      <SkillsAwardsList />
+    </div>
+
+    <!-- Work Experience -->
+    <div>
+      <h2 class="mb-4">Work Experience</h2>
+      <div>
+        <Timeline
+          dateRange="Apr 2024 - Jun 2024"
+          title="Junior Machine Learning Engineer"
+          description="TeleRadio Engineering Pte Ltd "
+          content="Improved a YOLOv8 model by 80% in recall and precision to detect defective lamps in machines through enhancing dataset and annotation quality, and incorporating hierarchical instance segmentation\nReduced annotation time by 60% through enabling automated polygon-based annotation for instance segmentation by integrating and hosting pre-trained YOLOv8 models as RESTful API back-ends for Label Studio\nDecreased dataset storage usage by 90% with a multiprocessing Python program to detect and trim redundant frames from videos based on the structural similarity index computed with Scikit and OpenCV\nConfigured network video recorders (NVRs) for data collection, annotated data with polygons using Label Studio,augmented dataset with Albumentation and Fiftyone, split and structured datasets with Supervision\nMentored interns on the machine learning workflow, maintained code cleanliness with pre-commit hooks and ruff linter, deployed on-premise solutions like Gitea and ClearML, and incorporated unit tests with Pytest"
+        />
+        <Timeline
+          dateRange="Sep 2023 - Mar 2024"
+          title="Software Engineer Intern"
+          description="NCS Pte Ltd"
+          content="Reduced deployment time by 85% by implementing multi-stage builds with Docker to containerize applications as images on Amazon Elastic Container Registry and streamline internal and user acceptance testing\nImplemented RESTful API for services such as asynchronous email notification, multipart upload with file storage, and CRUD for domain entities with Spring Boot, Java, and Microsoft SQL Server\nDesigned and developed responsive front-end user interfaces according to design specifications with multi-step forms and input validation using React.js with TypeScript, Material UI, React Hook Form and Yup\nLeveraged on Git for source version control by adopting a trunk-based workflow and maintaining a linear project history with rebase while ensuring adherence to the conventional commits specifications"
+        />
+        <Timeline
+          dateRange="Aug 2022 - Oct 2022"
+          title="Software Engineer Intern"
+          description="Allied Container Group"
+          content="Developed landing pages for subsidiaries across 3 countries using HTML/CSS with Bootstrap.\nDeveloped RESTful API endpoints for PHP backend based on the Yii framework.\nAssisted the team in the development of a full-stack e-commerce web application using HTML, Javascript and TailwindCSS, as well as a PHP backend.\nAssisted the CTO in determining the tech stack and framework to use in accordance to the company's needs."
+        />
+      </div>
+    </div>
+    <!-- End Work Experience -->
+
+    <!-- Education -->
+    <div>
+      <h2 class="mb-4">Education</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="p-4 border border-gray-200 rounded-lg">
+          <Image
+            src={nus}
+            alt="National University of Singapore"
+            height={50}
+            class="mb-3"
+          />
+
+          <h3 class="mb-1 text-xs text-gray-600">2026 - 2030</h3>
+
+          <p class="font-semibold text-sm text-gray-800">
+            Bachelor's degree in Information Security with Second Major in
+            Mathematics
+          </p>
+
+          <p class="mt-1 text-sm text-gray-600">
+            National University of Singapore
+          </p>
+        </div>
+
+        <div class="p-4 border border-gray-200 rounded-lg">
+          <Image
+            src={np}
+            alt="Ngee Ann Polytechnic"
+            height={40}
+            class="py-1.5 pb-1 mb-3"
+          />
+
+          <h3 class="mb-1 text-xs text-gray-600">2021 - 2024</h3>
+
+          <p class="font-semibold text-sm text-gray-800">
+            Diploma with Merit in Cybersecurity and Digital Forensics
+          </p>
+
+          <p class="mt-1 text-sm text-gray-600">Ngee Ann Polytechnic</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Education -->
+  </div>
+</BaseLayout>

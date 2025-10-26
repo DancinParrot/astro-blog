@@ -10,7 +10,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection("blog");
   const recentPosts = getSortedPosts(allPosts);
 
-  return paginate(recentPosts, {pageSize: 6});
+  return paginate(recentPosts, { pageSize: 6 });
 }) satisfies GetStaticPaths;
 
 const pageTitle = "Blog";
@@ -21,9 +21,12 @@ const { page } = Astro.props;
   <div class="flex flex-col min-h-full gap-8">
     <div class="flex flex-col gap-4">
       <h1 class="text-3xl font-bold">Blog</h1>
-      <p class="text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p class="text-zinc-500">
+        All of my blog posts on everything tech, including programming, machine
+        learning, and cybersecurity, sorted in chronological order.
+      </p>
     </div>
     <PostPreviewList posts={page.data} />
-    <Pagination page={page}/>
+    <Pagination page={page} />
   </div>
 </BaseLayout>

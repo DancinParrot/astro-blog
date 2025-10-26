@@ -1,14 +1,27 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import doro from "../assets/doro.jpeg";
 ---
+
 <section id="hero" class="flex w-full">
-  <div class="m-auto flex max-w-screen-xl flex-col justify-start gap-6">
-    <Image src={doro} alt="Shocked doro" width={100} class="rounded-full"/>
-    <div class="flex flex-1 flex-col gap-2">
-      <h1 class="text-xl">I make and break things!</h1>
-      <p class="text-zinc-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <a href="/about" class="underline text-zinc-500">Tell me more!</a>
+  <div class="m-auto flex max-w-screen-xl flex-col justify-start gap-4">
+    <div class="mb-2">
+      <Image
+        src={doro}
+        alt="Shocked doro"
+        width={100}
+        class="rounded-full mb-2"
+      />
+      <h1 class="text-3xl font-bold">Hello World!</h1>
     </div>
+    <p class="text-zinc-500">
+      I'm Kai Zhe, a student and an aspiring software engineer. My interest
+      spans a wide field of domains in the tech space, including software
+      development, cybersecurity and machine learning. Honestly, I've put off
+      building this website for quite a loong time but at last, it's done. With
+      that, I finally have my own little space amid the vast Internet to blog
+      and share anything exciting that I come across!
+    </p>
+    <!-- <a href="/about" class="underline text-zinc-500">Tell me more!</a> -->
   </div>
 </section>
