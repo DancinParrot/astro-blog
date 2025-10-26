@@ -1,39 +1,67 @@
 ---
-import { Bot, Moon, Menu, X } from '@lucide/astro';
+import { Bot, Menu, X } from "@lucide/astro";
+import ThemeIcon from "./ThemeIcon.astro";
 
 const { pathname } = Astro.url;
 ---
 
-<header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+<header
+  class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm"
+>
   <div class="max-w-3xl px-2 md:px-10 w-full sm:mx-auto">
-    <nav class="mt-4 relative w-full bg-white border border-gray-200 rounded-[24px] flex flex-wrap md:flex-nowrap items-center justify-between p-1 ps-4 md:py-0 sm:mx-auto">
+    <nav
+      class="mt-4 relative w-full bg-white border border-gray-200 rounded-[24px] flex flex-wrap md:flex-nowrap items-center justify-between p-1 ps-4 md:py-0 sm:mx-auto"
+    >
       <div class="flex items-center">
-        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/">
+        <a
+          class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
+          href="/"
+        >
           <Bot />
         </a>
 
-        <div class="ms-1 sm:ms-2">
-        </div>
+        <div class="ms-1 sm:ms-2"></div>
       </div>
 
       <div class="flex items-center gap-1 md:order-4 md:ms-4">
-        <a class="w-full sm:w-auto whitespace-nowrap py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
-          <Moon class="shrink-0 size-4.5" />
-        </a>
+        <ThemeIcon />
 
         <div class="md:hidden">
-          <button type="button" class="group mobile-header-toggle flex justify-center items-center size-9.5 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200" aria-expanded="false">
-            <Menu class="group-aria-[expanded=true]:hidden shrink-0 size-3.5"/>
+          <button
+            type="button"
+            class="group mobile-header-toggle flex justify-center items-center size-9.5 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200"
+            aria-expanded="false"
+          >
+            <Menu class="group-aria-[expanded=true]:hidden shrink-0 size-3.5" />
             <X class="group-aria-[expanded=false]:hidden shrink-0 size-3.5" />
           </button>
         </div>
       </div>
 
-      <div class="mobile-header aria-[expanded=false]:hidden overflow-hidden transition-all duration-300 basis-full grow md:aria-[expanded=false]:block" aria-expanded="false">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 font-medium text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/" aria-current={pathname.slice(1) == "" ? 'page' : 'false'}>Home</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/posts/" aria-current={pathname.slice(1, 6) == "posts" ? 'page' : 'false'}>Blog</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden" href="/about" aria-current={pathname.slice(1) == "about" ? 'page' : 'false'}>About</a>
+      <div
+        class="mobile-header aria-[expanded=false]:hidden overflow-hidden transition-all duration-300 basis-full grow md:aria-[expanded=false]:block"
+        aria-expanded="false"
+      >
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7"
+        >
+          <a
+            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 font-medium text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden"
+            href="/"
+            aria-current={pathname.slice(1) == "" ? "page" : "false"}>Home</a
+          >
+          <a
+            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden"
+            href="/posts/"
+            aria-current={pathname.slice(1, 6) == "posts" ? "page" : "false"}
+            >Blog</a
+          >
+          <a
+            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden"
+            href="/about"
+            aria-current={pathname.slice(1) == "about" ? "page" : "false"}
+            >About</a
+          >
         </div>
       </div>
     </nav>
@@ -41,12 +69,12 @@ const { pathname } = Astro.url;
 </header>
 
 <script>
-  const toggle = document.querySelector('.mobile-header-toggle');
-  const menu = document.querySelector('.mobile-header');
+  const toggle = document.querySelector(".mobile-header-toggle");
+  const menu = document.querySelector(".mobile-header");
 
-  toggle!.addEventListener('click', () => {
-    const isExpanded : boolean = menu!.getAttribute('aria-expanded') === 'true';
-    menu!.setAttribute('aria-expanded', (!isExpanded).toString());
-    toggle!.setAttribute('aria-expanded', (!isExpanded).toString());
+  toggle!.addEventListener("click", () => {
+    const isExpanded: boolean = menu!.getAttribute("aria-expanded") === "true";
+    menu!.setAttribute("aria-expanded", (!isExpanded).toString());
+    toggle!.setAttribute("aria-expanded", (!isExpanded).toString());
   });
 </script>
