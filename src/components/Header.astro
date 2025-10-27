@@ -10,11 +10,11 @@ const { pathname } = Astro.url;
 >
   <div class="max-w-3xl px-2 md:px-10 w-full sm:mx-auto">
     <nav
-      class="mt-4 relative w-full bg-white border border-gray-200 rounded-[24px] flex flex-wrap md:flex-nowrap items-center justify-between p-1 ps-4 md:py-0 sm:mx-auto"
+      class="mt-4 relative w-full bg-white border border-gray-200 rounded-[24px] flex flex-wrap md:flex-nowrap items-center justify-between p-1 ps-4 md:py-0 sm:mx-auto dark:bg-zinc-800 dark:border-zinc-600"
     >
       <div class="flex items-center">
         <a
-          class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
+          class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80 dark:text-white"
           href="/"
         >
           <Bot />
@@ -29,7 +29,7 @@ const { pathname } = Astro.url;
         <div class="md:hidden">
           <button
             type="button"
-            class="group mobile-header-toggle flex justify-center items-center size-9.5 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200"
+            class="group mobile-header-toggle flex justify-center items-center size-9.5 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-zinc-600 dark:focus:bg-zinc-900"
             aria-expanded="false"
           >
             <Menu class="group-aria-[expanded=true]:hidden shrink-0 size-3.5" />
@@ -46,18 +46,18 @@ const { pathname } = Astro.url;
           class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7"
         >
           <a
-            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 font-medium text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden"
+            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 font-medium text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-current:text-neutral-200 dark:aria-current:border-neutral-200"
             href="/"
             aria-current={pathname.slice(1) == "" ? "page" : "false"}>Home</a
           >
           <a
-            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden"
+            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-current:text-neutral-200 dark:aria-current:border-neutral-200"
             href="/posts/"
             aria-current={pathname.slice(1, 6) == "posts" ? "page" : "false"}
             >Blog</a
           >
           <a
-            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden"
+            class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-current:text-neutral-200 dark:aria-current:border-neutral-200"
             href="/about"
             aria-current={pathname.slice(1) == "about" ? "page" : "false"}
             >About</a

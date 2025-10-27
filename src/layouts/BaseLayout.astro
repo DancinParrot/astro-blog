@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 const { pageTitle } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@ const { pageTitle } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-	<body>
+	<body class="dark:bg-zinc-800">
 		<Header />	
 		<main class="max-w-app min-h-screen mx-auto px-6 pb-4 pt-16">
 			<slot />
