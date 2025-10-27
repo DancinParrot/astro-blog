@@ -1,22 +1,26 @@
 ---
-import { Image } from "astro:assets";
+import type {SvgComponent} from "astro/types";
 
 interface Props {
-  image: ImageMetadata;
+  image: SvgComponent;
   title: string;
   description: string;
   url: string;
 }
 
 const { image, title, description, url } = Astro.props;
+
+const Logo = image;
 ---
 
 <a href={url} target="_blank" class="flex justify-between gap-6 rounded-lg">
-  <div class="">
-    <h3 class="font-semibold text-sm text-gray-800">{title}</h3>
-    <p class="mt-1 text-sm text-gray-400">
+  <div>
+    <h3 class="font-semibold text-sm text-gray-800 dark:text-white">{title}</h3>
+    <p class="mt-1 text-sm text-gray-400 dark:text-stone-300">
       {description}
     </p>
   </div>
-  <Image src={image} alt={`Logo for ${title}`} height={32} />
+  <div class="flex items-center">
+    <Logo width={32} height={32} class="dark:fill-white content-center" />
+  </div>
 </a>
