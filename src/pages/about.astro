@@ -11,9 +11,11 @@ import android from "../assets/logos/android.svg";
 import astro from "../assets/logos/astro.svg";
 import nextjs from "../assets/logos/nextjs.svg";
 import linux from "../assets/logos/linux.svg";
+
+const pageTitle = "About Me"
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col gap-10">
     <!-- Profile -->
     <Profile />
