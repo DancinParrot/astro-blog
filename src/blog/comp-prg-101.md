@@ -88,7 +88,7 @@ diff out.txt sample-out.txt
 
 To compile your program, you may use the following compiler flags (see [here](https://codeforces.com/blog/entry/79024?locale=en) for more details):
 ```bash
-g++ -std=c++17 -Wall -Wextra -Wshadow -D_GLIBCXX_ASSERTIONS -DDEBUG -ggdb3 -fmax-errors=2 <your_file.cpp> -o <build/your_file>
+g++ -std=c++17 -Wall -Wextra -Wshadow -D_GLIBCXX_ASSERTIONS -DDEBUG -ggdb3 -fmax-errors=2 your_file.cpp -o build/your_file
 ```
 
 ### Basic I/O

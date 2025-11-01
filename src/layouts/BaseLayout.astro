@@ -25,9 +25,9 @@ const { pageTitle } = Astro.props;
 		<!-- <meta property="og:image" content="https://www.example.com/seo-banner.webp"> -->
 		<meta property="og:image:alt" content="" />
 	</head>
-	<body class="dark:bg-zinc-800">
+	<body class="dark:bg-zinc-800 min-h-screen flex flex-col">
 		<Header />
-		<main class="max-w-app min-h-screen mx-auto px-6 pb-4 pt-16">
+		<main class="max-w-app grow mx-auto px-6 pb-4 pt-16">
 			<slot />
 		</main>
 		<Footer />
