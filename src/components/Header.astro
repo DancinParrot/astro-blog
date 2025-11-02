@@ -58,8 +58,8 @@ const { pathname } = Astro.url;
           >
           <a
             class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent aria-current:border-gray-800 text-gray-500 aria-current:text-gray-800 hover:text-gray-800 focus:outline-hidden dark:text-stone-400 dark:hover:text-stone-300 dark:aria-current:text-stone-300 dark:aria-current:border-neutral-200"
-            href="/about"
-            aria-current={pathname.slice(1) == "about" ? "page" : "false"}
+            href="/about/"
+            aria-current={pathname.slice(1, 6) == "about" ? "page" : "false"}
             >About</a
           >
         </div>
