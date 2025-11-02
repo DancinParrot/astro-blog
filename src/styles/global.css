@@ -6,3 +6,5 @@
 @utility max-w-app {
   @apply max-w-2xl;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

@@ -5,15 +5,17 @@ import Timeline from "../components/Timeline.astro";
 import Profile from "../components/Profile.astro";
 import SkillsAwardsList from "../components/SkillsAwardsList.astro";
 import IconPreview from "../components/IconPreview.astro";
-import nus from "../assets/nus.png";
-import np from "../assets/np.png";
+import nus from "../assets/nus.svg";
+import np from "../assets/np.svg";
 import android from "../assets/logos/android.svg";
 import astro from "../assets/logos/astro.svg";
 import nextjs from "../assets/logos/nextjs.svg";
 import linux from "../assets/logos/linux.svg";
+
+const pageTitle = "About Me";
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col gap-10">
     <!-- Profile -->
     <Profile />
@@ -21,13 +23,13 @@ import linux from "../assets/logos/linux.svg";
 
     <!-- Projects -->
     <div>
-      <h2 class="mb-4">Projects</h2>
+      <h2 class="mb-4 dark:text-white">Projects</h2>
       <!-- <Projects /> -->
       <div class="space-y-4">
         <IconPreview
           image={nextjs}
           title="Cloudlabs"
-          description="Virtual environment on the cloud for labs"
+          description="Virtual classroom on the cloud"
           url="https://github.com/projectcatena/cloudlabs-app"
         />
         <IconPreview
@@ -54,13 +56,13 @@ import linux from "../assets/logos/linux.svg";
 
     <!-- Skills, Certs and Awards -->
     <div>
-      <h2 class="mb-4">Skills and Awards</h2>
+      <h2 class="mb-4 dark:text-white">Skills and Awards</h2>
       <SkillsAwardsList />
     </div>
 
     <!-- Work Experience -->
     <div>
-      <h2 class="mb-4">Work Experience</h2>
+      <h2 class="mb-4 dark:text-white">Work Experience</h2>
       <div>
         <Timeline
           dateRange="Apr 2024 - Jun 2024"
@@ -86,43 +88,49 @@ import linux from "../assets/logos/linux.svg";
 
     <!-- Education -->
     <div>
-      <h2 class="mb-4">Education</h2>
+      <h2 class="mb-4 dark:text-white">Education</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="p-4 border border-gray-200 rounded-lg">
+        <div class="p-4 border border-gray-200 rounded-lg dark:border-zinc-600">
           <Image
             src={nus}
             alt="National University of Singapore"
-            height={50}
-            class="mb-3"
+            height={400}
+            class="shrink-0 size-10 mb-3"
           />
 
-          <h3 class="mb-1 text-xs text-gray-600">2026 - 2030</h3>
+          <h3 class="mb-1 text-xs text-gray-600 dark:text-stone-300">
+            2026 - 2030
+          </h3>
 
-          <p class="font-semibold text-sm text-gray-800">
+          <p class="font-semibold text-sm text-gray-800 dark:text-white">
             Bachelor's degree in Information Security with Second Major in
             Mathematics
           </p>
 
-          <p class="mt-1 text-sm text-gray-600">
+          <p class="mt-1 text-sm text-gray-600 dark:text-stone-300">
             National University of Singapore
           </p>
         </div>
 
-        <div class="p-4 border border-gray-200 rounded-lg">
+        <div class="p-4 border border-gray-200 rounded-lg dark:border-zinc-600">
           <Image
             src={np}
             alt="Ngee Ann Polytechnic"
-            height={40}
-            class="py-1.5 pb-1 mb-3"
+            height={400}
+            class="shrink-0 size-10 mb-3"
           />
 
-          <h3 class="mb-1 text-xs text-gray-600">2021 - 2024</h3>
+          <h3 class="mb-1 text-xs text-gray-600 dark:text-stone-300">
+            2021 - 2024
+          </h3>
 
-          <p class="font-semibold text-sm text-gray-800">
+          <p class="font-semibold text-sm text-gray-800 dark:text-white">
             Diploma with Merit in Cybersecurity and Digital Forensics
           </p>
 
-          <p class="mt-1 text-sm text-gray-600">Ngee Ann Polytechnic</p>
+          <p class="mt-1 text-sm text-gray-600 dark:text-stone-300">
+            Ngee Ann Polytechnic
+          </p>
         </div>
       </div>
     </div>

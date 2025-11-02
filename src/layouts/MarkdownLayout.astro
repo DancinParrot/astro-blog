@@ -1,27 +1,35 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
 
-const date = frontmatter.pubDate.toLocaleDateString(
-  'en-gb',
-  {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }
-);
-
+const date = frontmatter.pubDate.toLocaleDateString("en-gb", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
+
 <BaseLayout pageTitle={frontmatter.title}>
-  <div class="prose">
+  <!-- Override tailwind typography max-width -->
+  <div class="prose dark:prose-invert max-w-none prose-img:mx-auto">
     <div class="mb-8">
       <h1 class="mb-6">{frontmatter.title}</h1>
-      <div class="relative border-s-4 border-gray-200 ps-4 sm:ps-6 not-prose flex flex-col py-1 gap-1">
+      <div
+        class="relative border-s-4 border-gray-200 ps-4 sm:ps-6 not-prose flex flex-col py-1 gap-1 dark:border-zinc-600"
+      >
         <p>{date}</p>
         <!-- <p><em>{frontmatter.description}</em></p> -->
         <div class="flex flex-row flex-wrap gap-2">
-          {frontmatter.tags.map((tag: string) => <a href={`/tags/${tag}`}><span class="inline-flex rounded-[64px] border text-center font-semibold transition-all duration-300 ease-in-out h-5 px-2 py-0.5 pb-5 text-xs border-slate-300 bg-white text-black">{tag}</span></a>)}
+          {
+            frontmatter.tags.map((tag: string) => (
+              <a href={`/tags/${tag}`}>
+                <span class="inline-flex rounded-[64px] border text-center font-semibold transition-all duration-300 ease-in-out h-5 px-2 py-0.5 pb-5 text-xs border-slate-300 bg-white text-black dark:bg-zinc-800 dark:border-zinc-600 dark:text-stone-300">
+                  {tag}
+                </span>
+              </a>
+            ))
+          }
         </div>
       </div>
       <!-- <p>Written by: {frontmatter.author}</p> -->

@@ -23,20 +23,20 @@ const bulletPoints = content.split(/\r?\n|\r|\n/g);
 
   <!-- Content -->
   <div class="grow pb-8 group-last:pb-0">
-    <h3 class="mb-1 text-xs text-gray-600">{dateRange}</h3>
+    <h3 class="mb-1 text-xs text-gray-600 dark:text-stone-300">{dateRange}</h3>
 
-    <p class="font-semibold text-sm text-gray-800">
+    <p class="font-semibold text-sm text-gray-800 dark:text-white">
       {title}
     </p>
 
-    <p class="mt-1 text-sm text-gray-600">
+    <p class="mt-1 text-sm text-gray-600 dark:text-stone-300">
       {description}
     </p>
 
     <ul class="list-disc ms-6 mt-3 space-y-1.5">
       {
         bulletPoints.map((point) => (
-          <li class="ps-1 text-sm text-gray-600">{point}</li>
+          <li class="ps-1 text-sm text-gray-600 dark:text-stone-300">{point}</li>
         ))
       }
     </ul>

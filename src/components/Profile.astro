@@ -1,33 +1,27 @@
 ---
 import { Image } from "astro:assets";
-import github from "../assets/logos/github.svg";
-import linkedin from "../assets/logos/linkedin.svg";
+import GitHub from "../assets/logos/github.svg";
+import LinkedIn from "../assets/logos/linkedin.svg";
 ---
 
 <div class="flex flex-col gap-4">
-  <h1 class="text-3xl font-bold">About Me</h1>
-  <p class="text-zinc-500">
-    Currently, I'm still serving NS so I spend the majority of my time being
-    cooped up in camp. Besides wasting my life away in camp, I dabbled in a lot
-    of mini projects such as, building this website, reverse engineering,
-    experimenting with machine learning models and last but not least,
-    competitive programming (although I kinda suck at it lol).
+  <h1 class="text-3xl font-bold dark:text-white">About Me</h1>
+  <p class="text-gray-500 dark:text-stone-300">
+    Currently, I'm still serving NS so I spend the majority of my time being cooped up in camp. Besides that, I dabbled in a lot of side projects such as, software development, reverse engineering, sysadmin, and vulnerability disclosure.
   </p>
-  <p class="text-zinc-500">
-    This website is hosted on a LXC container within my homelab, that is, my
-    cheap DELL. It ain't much, but it gets the job done after slapping Proxmox
-    on top of it. I figured it'd be a waste to use it only for experiments, so I
-    bought a domain, signed up for Cloudflare and started hosting various
-    services specifically, modded game servers, and this website.
+  <p class="text-gray-500 dark:text-stone-300">
+    This website is hosted within homelab, that is, my cheap DELL. It ain't much, but it gets the job done after slapping Proxmox
+    on top of it. I figured it'd be a waste to use it only for experiments, so I bought a domain, signed up for Cloudflare and started hosting various services: modded game servers, and this website.
   </p>
 
   <!-- Contact Info -->
   <div class="flex flex-row flex-wrap gap-4 mt-2">
     <a href="https://github.com/DancinParrot" target="_blank">
-      <Image src={github} alt="Github" height={24} />
+      <GitHub height={24} class="dark:fill-white" />
     </a>
     <a href="https://www.linkedin.com/in/kaizhetan/" target="_blank">
-      <Image src={linkedin} alt="LinkedIn" height={24} />
+      <!-- <Image src={LinkedIn} alt="LinkedIn" height={24} /> -->
+      <LinkedIn height={24} width={24} class="dark:fill-white" />
     </a>
   </div>
 </div>

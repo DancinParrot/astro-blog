@@ -1,33 +1,35 @@
 ---
 import "../styles/global.css";
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const { pageTitle } = Astro.props;
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<!-- <meta name="generator" content={Astro.generator} /> -->
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<title>{pageTitle}</title>
+		<meta name="description" content="Welcome to my website!" />
+		<!-- Consider adding web analytics -->
+		<!-- Open Graph tags -->
+		<meta property="og:title" content="Kai Zhe's Website" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.kaizhe.me/" />
+		<meta property="og:description" content="Welcome to my website!" />
+		<!-- <meta property="og:image" content="https://www.example.com/seo-banner.webp"> -->
+		<meta property="og:image:alt" content="" />
 	</head>
-	<body>
-		<Header />	
-		<main class="max-w-app min-h-screen mx-auto px-6 pb-4 pt-16">
+	<body class="dark:bg-zinc-800 min-h-screen flex flex-col">
+		<Header />
+		<main class="max-w-app w-full grow mx-auto px-6 pb-4 pt-16">
 			<slot />
 		</main>
 		<Footer />
 	</body>
 </html>
-
-<!-- <style> -->
-<!-- 	html, -->
-<!-- 	body { -->
-<!-- 		margin: 0; -->
-<!-- 		width: 100%; -->
-<!-- 		height: 100%; -->
-<!-- 	} -->
-<!-- </style> -->
