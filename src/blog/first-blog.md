@@ -1,5 +1,5 @@
 ---
-title: "Competitive Programming 101: The Very Basics"
+title: "First Blog Post"
 pubDate: 2020-11-05
 description: "First post on my old, now non-existent site @ kernelized.xyz"
 author: "Kai"
@@ -8,7 +8,6 @@ image:
   alt: "Sample image"
 tags: ["legacy"]
 ---
-
 
 This article was the first blog published on my old website, kernelized.xyz which has now been taken down.
 
