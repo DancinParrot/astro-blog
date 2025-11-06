@@ -9,9 +9,9 @@ image:
 tags: ["cpp", "competitive programming"]
 ---
 
-Recently, I have embarked on a grueling journey to improve my algorithmic and problem solving skills through competitive programming. I bought a full copy of Competitive Programming 4 and started griding problems listed in the book. Since I'm stuck in a military camp, I have to adopt the most archaic way of writing code, by literally, writing code down on a piece of paper.
+Recently, I have embarked on a grueling journey to improve my algorithmic and problem solving skills through competitive programming. I bought a full copy of Competitive Programming 4 and started grinding problems listed in the book. Since I'm stuck in a military camp, I have to adopt the most archaic way of writing code, by literally, writing code down on a piece of paper.
 
-It was a truly humbling experience as I could not even devise the most basic syntax without referring to online resources. I have never missed clangd so much ever since then. Now, I'm writing this article to share the basics of competitive programming that I've learnt so far before eventually diving into more advanced problems that deal with data structures and algorithms. 
+It was a truly humbling experience as I could not even devise the most basic syntax without referring to online resources. I have never missed `clangd` so much ever since then. Now, I'm writing this article to share the basics of competitive programming that I've learnt so far before eventually diving into more advanced problems that deal with data structures and algorithms.
 
 ## Understanding Problems
 
@@ -31,9 +31,9 @@ As you can see, the solution is to just simply, print out the value of p. For ha
 
 ## Input/Output
 
-Competitive programming requires manual handling of I/O, that is, writing the appropriate function to parse varying forms of input from `stdin` and printing the output in the right format to `stdout`. As a result, those with a Leetcode background would find this unnerving as input is no longer provided as parameters of a predefined function.
+Competitive programming requires manual handling of I/O, that is, writing the appropriate function to parse varying forms of input from `stdin` and printing the output in the right format to `stdout`. As a result, those with a LeetCode background would find this unnerving as input is no longer provided as parameters of a predefined function.
 
-Leetcode:
+LeetCode:
 
 ```cpp
 vector<int> twoSum(vector<int>& nums, int target) {
@@ -80,13 +80,14 @@ You can either use `freopen` to write to external file or just pipe it, the latt
 ./program < input.txt > out.txt
 ```
 
-After which, compare your program's output with the problem's sample output. However, you should not rely on just the sample output to assert the correctness of your code, do look out for edge cases like the extreme positive and negative ends of the input or extremely large values that may exceed the limit of a normal `int`.
+After which, compare your program's output with the problem's sample output. However, you should not rely on just the sample output to assert the correctness of your code. Edge cases should be checked before submission such as, the extreme positive and negative ends of the input or extremely large values that may exceed the limit of a normal `int`.
 
 ```bash
 diff out.txt sample-out.txt
 ```
 
 To compile your program, you may use the following compiler flags (see [here](https://codeforces.com/blog/entry/79024?locale=en) for more details):
+
 ```bash
 g++ -std=c++17 -Wall -Wextra -Wshadow -D_GLIBCXX_ASSERTIONS -DDEBUG -ggdb3 -fmax-errors=2 your_file.cpp -o build/your_file
 ```
@@ -136,7 +137,7 @@ int main() {
 }
 ```
 
-Likewise, in [Kattis - Statistics](https://open.kattis.com/problems/statistics), the number of test cases remains unknown, but the termination critera for this problem is `EOF` instead of detecting a specific input in stdin:
+Likewise, in [Kattis - Statistics](https://open.kattis.com/problems/statistics), the number of test cases remains unknown, but the termination criteria for this problem is `EOF` instead of detecting a specific input in stdin:
 
 ```cpp
 int main() {
@@ -158,7 +159,7 @@ After completing the previously shown problems, you might notice a patterns:
 - `scanf()` returns the number of items read, and can be used to detect `EOF`.
 - `printf()` can be used to format string, i.e. `printf("Case %d: %d", count, n)`.
 - `while()` allows for multiple conditions, i.e. `while(scanf("%d", &n) != EOF, (n != 0))`.
-- With `cin.tie(0)`, you should not mix `cin/cout` with `scanf()/printf()` as it may lead to unexpected behaviours, see [here](https://usaco.guide/general/fast-io?lang=cpp) for more information on this.
+- With `cin.tie(0)`, you should not mix `cin/cout` with `scanf()/printf()` as it may lead to unexpected behaviors, see [here](https://usaco.guide/general/fast-io?lang=cpp) for more information on this.
 
 ## Conclusion
 
