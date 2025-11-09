@@ -62,8 +62,7 @@ void solve() { return; }
 
 int main() {
   ios::sync_with_stdio(0);
-  cin.tie(0); // don't mix C scanf() with C++ cin with this
-  cout.tie(0);
+  cin.tie(0); // cin/cout will be faster but don't mix C scanf() with C++ cin with this
 
   // freopen("input.txt", "r", stdin);
   // May use diff ./output.txt ./expected.txt to assert correctness

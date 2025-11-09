@@ -107,7 +107,7 @@ echo 'net.ipv6.conf.all.forwarding = 1' | tee -a /etc/sysctl.d/99-tailscale.conf
 sysctl -p /etc/sysctl.d/99-tailscale.conf
 ```
 
-The aforementioned configuration may persisted across reboots by executing the `sysctl` command on startup using the following script:
+The aforementioned configuration may be persisted across reboots by executing the `sysctl` command on startup using the following script:
 
 ```bash
 #!/bin/sh

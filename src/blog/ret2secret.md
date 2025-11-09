@@ -15,9 +15,9 @@ GCTF or Gryphon CTF is a Capture-The-Flag event hosted by Cybersecurity students
 
 The challenge features an ELF executable named "ret2secret", a pair of ssh login credentials, as well as the domain name of the challenge server.
 
-Before launching the executable, we can perform static analysis to determine the file type and architecture, and even view its source code by disassembling and decompiling it with Ghidra.
+Before launching the executable, we can perform static analysis to determine the filetype and architecture, and even view its source code by disassembling and decompiling it with Ghidra.
 
-After which, we can perform dynamic analysis to observe the behaviour of the executable and determine the potential vulnerabilities and hence, craft a payload to exploit the vulnerability.
+After which, we can perform dynamic analysis to observe the behavior of the executable and determine the potential vulnerabilities and hence, craft a payload to exploit the vulnerability.
 
 ## Static Analysis
 
@@ -30,7 +30,7 @@ Using `file`, `checksec`, and `readelf`, we can determine basic information of t
 With `file ret2secret`, we can ascertain the architecture of the file, which is a 32-bit ELF executable, as seen below.
 
 ![file info](https://res.cloudinary.com/dq7mgdskm/image/upload/v1761928529/1_hgv7o0.png)
-Furthermore, through the use of checksec, the binary is discovered to be lacking various essential protective mechanisms such as stack canary, and PIE (used to enable Address Space Layout Randomization or ASLR for short).
+Furthermore, through the use of `checksec`, the binary is discovered to be lacking various essential protective mechanisms such as stack canary, and PIE (used to enable Address Space Layout Randomization or ASLR for short).
 
 ![checksec](https://res.cloudinary.com/dq7mgdskm/image/upload/v1761928527/2_fytfri.webp)
 
@@ -44,7 +44,7 @@ With `readelf -s ret2secret`, a table containing all the symbols (functions and 
 
 ![secret address](https://res.cloudinary.com/dq7mgdskm/image/upload/v1761928524/3_attbcc.png)
 
-Next, we may analyze the source code of the binary executable using a decompiler of your choice, or Ghidra as in my case. It was discovered that the main subroutine contains a call to the greet subroutine that involves the use of the `scanf()` function to obtain and store user input into a variable of 20 characters in length, `local_1c` (not the exact name), which is then reflected back to the user through the `%s` specifier.
+Next, we may analyze the source code of the binary executable using a decompiler of your choice, or Ghidra as in my case. It was discovered that the `main` subroutine contains a call to the `greet` subroutine. It involves the use of the `scanf()` function to obtain and store user input into a variable of 20 characters in length, `local_1c` (not the exact name), which is then reflected back to the user through the `%s` specifier.
 
 ![greet function](https://res.cloudinary.com/dq7mgdskm/image/upload/v1761928521/4_qkqksf.webp)
 
@@ -131,17 +131,17 @@ Before diving any deeper, I suppose now would be the best time to clear things u
 
 > Ok, so the return address is important as it tells the program where to go after a function has finished its execution. But what about the frame pointer? Why must it be saved as well?
 
-Great question! The frame or base pointer (EBP) serves as an essential point of reference as it allows the program to locate variables and arguments by adding specific offsets to the EBP, such as `ebp+4` (to access arguments) or `ebp-4` (to access variables). As such, the EBP of the previous subroutine, or main, in this case, must be preserved, such that when the flow of execution has ended and transferred back to main, main will then know where to look for variables and arguments.
+Great question! The frame or base pointer (EBP) serves as an essential point of reference as it allows the program to locate variables and arguments by adding specific offsets to the EBP, such as `ebp+4` (to access arguments) or `ebp-4` (to access variables). As such, the EBP of the previous subroutine, or main, in this case, must be preserved. This allows main to know where to look for variables and arguments when the flow of execution has ended and transferred back to main.
 
 > So, which one actually matters?
 
-For our case, we only need to focus on the return address or the Saved EIP, though it is still important to pad the Saved EBP with proper values, which can be achieved using the address of symbols within the binary, such as `main` or even `secret` itself.
+For our case, we only need to focus on the return address or the Saved EIP. Though it is still important to pad the Saved EBP with proper values, which can be achieved using the address of symbols within the binary, such as `main` or even `secret` itself.
 
 Upon receiving malicious user input, it is then stored inside the `local_1c` variable which will overflow, resulting in the values for Saved EBP, and Saved EIP being overwritten with arbitrary values.
 
 ![stack pwned](https://res.cloudinary.com/dq7mgdskm/image/upload/v1761928498/13_am1f2l.webp)
 
-As our primary goal is to overwrite the value of Saved EIP with that of the `secret` subroutine, the address of the main subroutine is written first as padding, and then the address of the `secret` subroutine, causing `secret` to be invoked instead of `main` once `greet` has finished its flow of execution.
+Our primary goal is to overwrite the value of Saved EIP with that of the `secret` subroutine. Hence, the address of the main subroutine is written first as padding, and then the address of the `secret` subroutine, causing `secret` to be invoked instead of `main` once `greet` has finished its flow of execution.
 
 ## Exploitation
 
