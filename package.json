@@ -12,6 +12,8 @@
     "@lucide/astro": "^0.544.0",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.16.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
